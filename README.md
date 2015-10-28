@@ -13,7 +13,7 @@ $ phpunit
 ```
 
 ## Steps
-Start with the cloning the [master](https://github.com/kabirbaidhya/TestableCode) branch that consists of untestable code and checkout to respective branches [step-1](https://github.com/kabirbaidhya/TestableCode/tree/step-1), [step-1](https://github.com/kabirbaidhya/TestableCode/tree/step-2) and so on. 
+Start by cloning the [master](https://github.com/kabirbaidhya/TestableCode) branch that consists of untestable code and checkout to respective branches [step-1](https://github.com/kabirbaidhya/TestableCode/tree/step-1), [step-1](https://github.com/kabirbaidhya/TestableCode/tree/step-2) and so on. 
 
 1. Refactor using Dependency Injection and SOLID principles properly and make it testable [[step-1](https://github.com/kabirbaidhya/TestableCode/tree/step-1)]
 2. Organize the namespaces and directory structure [[step-2](https://github.com/kabirbaidhya/TestableCode/tree/step-2)]
