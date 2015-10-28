@@ -13,5 +13,13 @@
         "psr-4": {
             "Acme\\Test\\": "tests/Acme/"
         }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "composer dump-autoload --optimize"
+        ],
+        "post-update-cmd": [
+            "composer dump-autoload --optimize"
+        ]
     }
 }
