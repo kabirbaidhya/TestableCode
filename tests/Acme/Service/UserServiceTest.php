@@ -2,6 +2,7 @@
 
 namespace Acme\Test\Service;
 
+use Mockery;
 use Acme\Test\TestCase;
 use Acme\Service\UserService;
 use Acme\Foundation\SessionInterface;
@@ -15,18 +16,18 @@ class UserServiceTest extends TestCase
 
     public function testUserServiceReturnsCurrentUser()
     {
-        $session = $this->getMockForAbstractClass(SessionInterface::class);
-        $repository = $this->getMockForAbstractClass(UserRepositoryInterface::class);
+        $session = Mockery::mock(SessionInterface::class);
+        $repository = Mockery::mock(UserRepositoryInterface::class);
 
-        $session->expects($this->once())->method('has')->with('user_id')->willReturn(true);
-        $session->expects($this->once())->method('get')->with('user_id')->willReturn(5);
+        $session->shouldReceive('has')->once()->with('user_id')->andReturn(true);
+        $session->shouldReceive('get')->once()->with('user_id')->andReturn(5);
 
         $user = [
             'id' => 5,
             'name' => 'Foo Bar'
         ];
 
-        $repository->expects($this->once())->method('getUserById')->with(5)->willReturn($user);
+        $repository->shouldReceive('getUserById')->once()->with(5)->andReturn($user);
 
         $userService = new UserService($session, $repository);
 
