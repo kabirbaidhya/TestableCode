@@ -18,6 +18,7 @@ class UserServiceTest extends TestCase
         $session = $this->getMockForAbstractClass(SessionInterface::class);
         $repository = $this->getMockForAbstractClass(UserRepositoryInterface::class);
 
+        $session->expects($this->once())->method('has')->with('user_id')->willReturn(true);
         $session->expects($this->once())->method('get')->with('user_id')->willReturn(5);
 
         $user = [

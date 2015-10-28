@@ -33,13 +33,13 @@ class UserService
 
     public function getCurrentUser()
     {
-        $userId = $this->session->get('user_id');
+        if ($this->session->has('user_id')) {
+            $userId = $this->session->get('user_id');
 
-        if (empty($userId)) {
-            return null;
+            return $this->repository->getUserById($userId);
         }
 
-        return $this->repository->getUserById($userId);
+        return null;
     }
 
 }
