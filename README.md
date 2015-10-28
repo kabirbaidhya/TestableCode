@@ -16,6 +16,7 @@ A demo application to demonstrate writing testable code & loosely coupled code.
 
 ## Useful Links and videos
 * https://laracasts.com/collections/solid-principles
+* https://scotch.io/bar-talk/s-o-l-i-d-the-first-five-principles-of-object-oriented-design
 * http://code.tutsplus.com/tutorials/how-to-write-testable-and-maintainable-code-in-php--net-31726
 * http://code.tutsplus.com/tutorials/dependency-injection-huh--net-26903
 * https://laracasts.com/collections/testing-in-php
