@@ -1,6 +1,9 @@
 <?php
 
-namespace Acme;
+namespace Acme\Service;
+
+use Acme\Foundation\SessionInterface;
+use Acme\Repository\UserRepositoryInterface;
 
 /**
  * @author Kabir Baidhya
@@ -31,8 +34,12 @@ class UserService
     public function getCurrentUser()
     {
         $userId = $this->session->get('user_id');
-        $user = $this->repository->getUserById($userId);
 
-        return $user;
+        if (empty($userId)) {
+            return null;
+        }
+
+        return $this->repository->getUserById($userId);
     }
+
 }

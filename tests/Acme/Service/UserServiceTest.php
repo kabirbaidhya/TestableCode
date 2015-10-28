@@ -1,10 +1,11 @@
 <?php
 
-namespace Acme\Test;
+namespace Acme\Test\Service;
 
-use Acme\UserService;
-use Acme\SessionInterface;
-use Acme\UserRepositoryInterface;
+use Acme\Test\TestCase;
+use Acme\Service\UserService;
+use Acme\Foundation\SessionInterface;
+use Acme\Repository\UserRepositoryInterface;
 
 /**
  * @author Kabir Baidhya
@@ -14,8 +15,8 @@ class UserServiceTest extends TestCase
 
     public function testUserServiceReturnsCurrentUser()
     {
-        $session = $this->getMock(SessionInterface::class, ['get']);
-        $repository = $this->getMock(UserRepositoryInterface::class, ['getUserById']);
+        $session = $this->getMockForAbstractClass(SessionInterface::class);
+        $repository = $this->getMockForAbstractClass(UserRepositoryInterface::class);
 
         $session->expects($this->once())->method('get')->with('user_id')->willReturn(5);
 
