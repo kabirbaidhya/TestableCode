@@ -2,9 +2,9 @@
 
 namespace Acme\Test;
 
-use Acme\UserRepositoryInterface;
 use Acme\UserService;
 use Acme\SessionInterface;
+use Acme\UserRepositoryInterface;
 
 /**
  * @author Kabir Baidhya

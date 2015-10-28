@@ -11,13 +11,17 @@ class UserService
     /**
      * @var SessionInterface
      */
-    private $session;
+    protected $session;
 
     /**
      * @var UserRepositoryInterface
      */
-    private $repository;
+    protected $repository;
 
+    /**
+     * @param SessionInterface $session
+     * @param UserRepositoryInterface $repository
+     */
     public function __construct(SessionInterface $session, UserRepositoryInterface $repository)
     {
         $this->session = $session;
