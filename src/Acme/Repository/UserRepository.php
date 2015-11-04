@@ -35,7 +35,7 @@ class UserRepository implements UserRepositoryInterface
 
         return $query
             ->select('*')
-            ->from('user')
+            ->from('users')
             ->where($query->expr()->eq('id', $userId))
             ->execute()->fetch();
     }
