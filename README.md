@@ -43,3 +43,4 @@ Please go through these blog posts and videos to get a nice grasp of how to writ
 * http://code.tutsplus.com/tutorials/dependency-injection-huh--net-26903
 * https://laracasts.com/collections/testing-in-php
 * http://www.martinfowler.com/articles/injection.html
+* http://doctrine-orm.readthedocs.org/projects/doctrine-dbal/en/latest/reference/configuration.html

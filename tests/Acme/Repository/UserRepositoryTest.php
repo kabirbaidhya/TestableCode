@@ -3,6 +3,8 @@
 namespace Acme\Test\Repository;
 
 use Acme\Test\TestCase;
+use Acme\Foundation\Database;
+use Doctrine\DBAL\DriverManager;
 use Acme\Repository\UserRepository;
 
 /**
@@ -18,7 +20,12 @@ class UserRepositoryTest extends TestCase
 
     public function setUp()
     {
-        $this->userRepository = new UserRepository();
+        $config = require 'config/config.php';
+        $this->userRepository = new UserRepository(
+            new Database(
+                DriverManager::getConnection($config['database'])
+            )
+        );
     }
 
     public function testGetUserByIdReturnsUserIfExists()
