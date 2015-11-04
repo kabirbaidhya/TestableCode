@@ -21,5 +21,8 @@
         "post-update-cmd": [
             "composer dump-autoload --optimize"
         ]
+    },
+    "require": {
+        "doctrine/dbal": "^2.5"
     }
 }
