@@ -3,3 +3,4 @@ composer.lock
 vendor/
 nbproject/
 tests/output
+config/config.php
