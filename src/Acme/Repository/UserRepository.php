@@ -2,23 +2,41 @@
 
 namespace Acme\Repository;
 
+use Acme\Foundation\DatabaseInterface;
+
 /**
  * @author Kabir Baidhya
  */
 class UserRepository implements UserRepositoryInterface
 {
 
-    public function __construct()
+    /**
+     * @var DatabaseInterface
+     */
+    protected $db;
+
+    /**
+     * @param DatabaseInterface $db
+     */
+    public function __construct(DatabaseInterface $db)
     {
+        $this->db = $db;
     }
 
     /**
      * Gets a user by id
      *
-     * @param int|null $userId
+     * @param int $userId
+     * @return mixed
      */
     public function getUserById($userId)
     {
-        // TODO: Implement getUserById() method.
+        $query = $this->db->createQueryBuilder();
+
+        return $query
+            ->select('*')
+            ->from('user')
+            ->where($query->expr()->eq('id', $userId))
+            ->execute()->fetch();
     }
 }
