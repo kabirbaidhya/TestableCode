@@ -33,6 +33,8 @@ class Application
     /**
      * Run the application
      *
+     * TODO This method violates the SRP, refactor it
+     *
      * @return Application
      */
     public function run()
