@@ -3,7 +3,7 @@
 namespace Acme\Test;
 
 use PHPUnit_Framework_TestCase;
-use Illuminate\Contracts\Container\Container;
+use Acme\Foundation\Application;
 
 /**
  * @author Kabir Baidhya
@@ -12,24 +12,24 @@ class TestCase extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @var Container
+     * @var Application
      */
-    protected static $container;
+    protected static $application;
 
     /**
-     * @return Container
+     * @param Application $application
      */
-    public static function getContainer()
+    public static function setApplication(Application $application)
     {
-        return self::$container;
+        self::$application = $application;
     }
 
     /**
-     * @param Container $container
+     * @return \Illuminate\Contracts\Container\Container
      */
-    public static function setContainer(Container $container)
+    public function getContainer()
     {
-        self::$container = $container;
+        return self::$application->getContainer();
     }
 
 }

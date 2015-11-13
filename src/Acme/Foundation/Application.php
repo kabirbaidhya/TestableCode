@@ -2,7 +2,12 @@
 
 namespace Acme\Foundation;
 
+use Doctrine\DBAL\DriverManager;
+use Acme\Foundation\Database\Database;
+use Acme\Repository\UserRepository;
+use Acme\Repository\UserRepositoryInterface;
 use Illuminate\Contracts\Container\Container;
+use Acme\Foundation\Database\DatabaseInterface;
 
 /**
  * @author Kabir Baidhya
@@ -25,10 +30,28 @@ class Application
 
     /**
      * Run the application
+     *
+     * @return Application
      */
     public function run()
     {
-        // Bootstrap the container with Services
+        // Register the configuration
+        $this->container->bind('config', function () {
+            return require CONFIG_FILE;
+        });
+
+        // Register DatabaseInterface
+        $this->container->bind(DatabaseInterface::class, function ($container) {
+            return new Database(
+                DriverManager::getConnection($container['config']['database'])
+            );
+        });
+
+        $this->container->bind(UserRepositoryInterface::class, function ($container) {
+            return new UserRepository($container[DatabaseInterface::class]);
+        });
+
+        return $this;
     }
 
     /**
