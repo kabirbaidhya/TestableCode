@@ -1,11 +1,11 @@
 <?php
 
-namespace Acme\Test\Foundation;
+namespace Acme\Test\Foundation\Session;
 
-use Acme\Foundation\Database;
-use Acme\Foundation\Session;
 use Acme\Test\TestCase;
 use Doctrine\DBAL\DriverManager;
+use Acme\Foundation\Session\Session;
+use Acme\Foundation\Database\Database;
 
 /**
  * @author Kabir Baidhya
@@ -50,6 +50,5 @@ class SessionTest extends TestCase
 
         $this->assertEquals($expected, $result);
     }
-
 
 }

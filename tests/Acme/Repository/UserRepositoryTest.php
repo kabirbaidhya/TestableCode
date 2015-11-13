@@ -3,9 +3,9 @@
 namespace Acme\Test\Repository;
 
 use Acme\Test\TestCase;
-use Acme\Foundation\Database;
 use Doctrine\DBAL\DriverManager;
 use Acme\Repository\UserRepository;
+use Acme\Foundation\Database\Database;
 
 /**
  * @author Kabir Baidhya

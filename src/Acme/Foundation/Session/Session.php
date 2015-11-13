@@ -1,6 +1,8 @@
 <?php
 
-namespace Acme\Foundation;
+namespace Acme\Foundation\Session;
+
+use Acme\Foundation\Database\DatabaseInterface;
 
 /**
  * @author Kabir Baidhya
@@ -11,7 +13,7 @@ class Session implements SessionInterface
     /**
      * @var DatabaseInterface
      */
-    private $db;
+    protected $db;
 
     public function __construct(DatabaseInterface $db)
     {

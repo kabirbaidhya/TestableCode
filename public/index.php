@@ -1,10 +1,10 @@
 <?php
 // For autoloading Composer based dependencies
-use Acme\Foundation\Database;
 use Acme\Foundation\Session;
-use Acme\Repository\UserRepository;
 use Acme\Service\UserService;
+use Acme\Foundation\Database;
 use Doctrine\DBAL\DriverManager;
+use Acme\Repository\UserRepository;
 
 require __DIR__ . '/../vendor/autoload.php';
 

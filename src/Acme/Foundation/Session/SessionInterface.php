@@ -1,6 +1,6 @@
 <?php
 
-namespace Acme\Foundation;
+namespace Acme\Foundation\Session;
 
 /**
  * @author Kabir Baidhya

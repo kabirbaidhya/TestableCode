@@ -2,7 +2,7 @@
 
 namespace Acme\Repository;
 
-use Acme\Foundation\DatabaseInterface;
+use Acme\Foundation\Database\DatabaseInterface;
 
 /**
  * @author Kabir Baidhya

@@ -1,7 +1,6 @@
 <?php
 
-
-namespace Acme\Foundation;
+namespace Acme\Foundation\Database;
 
 use Doctrine\DBAL\Query\QueryBuilder;
 
