@@ -13,4 +13,5 @@ return [
         'host' => 'HOST',
         'driver' => 'DRIVER',
     ],
+    'providers' => require __DIR__ . '/providers.config.php'
 ];
