@@ -33,35 +33,22 @@ class Application
     /**
      * Run the application
      *
-     * TODO This method violates the SRP, refactor it
-     *
      * @return Application
      */
     public function run()
     {
-        // Register the configuration
-        $this->container->bind('config', function () {
-            return require CONFIG_FILE;
-        });
+        $this->registerConfig();
 
-        // Register DatabaseInterface
-        $this->container->bind(DatabaseInterface::class, function ($container) {
-            return new Database(
-                DriverManager::getConnection($container['config']['database'])
-            );
-        });
-
-        // Register UserRepositoryInterface
-        $this->container->bind(UserRepositoryInterface::class, function ($container) {
-            return new UserRepository($container[DatabaseInterface::class]);
-        });
-
-        // Register SessionInterface bindings
-        $this->container->bind(SessionInterface::class, function ($container) {
-            return new Session($container[DatabaseInterface::class]);
-        });
+        $this->registerServices();
 
         return $this;
+    }
+
+    protected function registerConfig()
+    {
+        $config = require CONFIG_FILE;
+        // Register the configuration
+        $this->container->instance('config', $config);
     }
 
     /**
@@ -70,6 +57,18 @@ class Application
     public function getContainer()
     {
         return $this->container;
+    }
+
+    protected function registerServices()
+    {
+        $providers = $this->container['config']['providers'];
+
+        foreach ($providers as $provider) {
+            /** @var ServiceProviderInterface $serviceProvider */
+            $serviceProvider = new $provider($this->container);
+
+            $serviceProvider->register();
+        }
     }
 
 }
