@@ -6,9 +6,9 @@ use Acme\Repository\UserRepository;
 use Acme\Foundation\Session\Session;
 use Acme\Foundation\Database\Database;
 
-require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../bootstrap.php';
 
-$config = require 'config/config.php';
+$config = require CONFIG_FILE;
 $database = new Database(
     DriverManager::getConnection($config['database'])
 );

@@ -20,7 +20,7 @@ class UserRepositoryTest extends TestCase
 
     public function setUp()
     {
-        $config = require 'config/config.php';
+        $config = require CONFIG_FILE;
         $this->userRepository = new UserRepository(
             new Database(
                 DriverManager::getConnection($config['database'])

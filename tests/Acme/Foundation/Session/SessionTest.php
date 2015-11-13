@@ -21,7 +21,7 @@ class SessionTest extends TestCase
     public function setUp()
     {
         // TODO Refactor to make it DRY
-        $config = require 'config/config.php';
+        $config = require CONFIG_FILE;
         $this->session = new Session(
             new Database(
                 DriverManager::getConnection($config['database'])
