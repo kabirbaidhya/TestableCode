@@ -3,9 +3,8 @@
 namespace Acme\Test\Foundation\Session;
 
 use Acme\Test\TestCase;
-use Doctrine\DBAL\DriverManager;
 use Acme\Foundation\Session\Session;
-use Acme\Foundation\Database\Database;
+use Acme\Foundation\Session\SessionInterface;
 
 /**
  * @author Kabir Baidhya
@@ -20,13 +19,7 @@ class SessionTest extends TestCase
 
     public function setUp()
     {
-        // TODO Refactor to make it DRY
-        $config = require CONFIG_FILE;
-        $this->session = new Session(
-            new Database(
-                DriverManager::getConnection($config['database'])
-            )
-        );
+        $this->session = $this->getContainer()[SessionInterface::class];
     }
 
     public function testSessionHasUserIdKeyWorks()

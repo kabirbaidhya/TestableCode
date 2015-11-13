@@ -3,10 +3,12 @@
 namespace Acme\Foundation;
 
 use Doctrine\DBAL\DriverManager;
-use Acme\Foundation\Database\Database;
 use Acme\Repository\UserRepository;
+use Acme\Foundation\Session\Session;
+use Acme\Foundation\Database\Database;
 use Acme\Repository\UserRepositoryInterface;
 use Illuminate\Contracts\Container\Container;
+use Acme\Foundation\Session\SessionInterface;
 use Acme\Foundation\Database\DatabaseInterface;
 
 /**
@@ -47,8 +49,14 @@ class Application
             );
         });
 
+        // Register UserRepositoryInterface
         $this->container->bind(UserRepositoryInterface::class, function ($container) {
             return new UserRepository($container[DatabaseInterface::class]);
+        });
+
+        // Register SessionInterface bindings
+        $this->container->bind(SessionInterface::class, function ($container) {
+            return new Session($container[DatabaseInterface::class]);
         });
 
         return $this;
