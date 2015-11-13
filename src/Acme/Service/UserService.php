@@ -2,7 +2,7 @@
 
 namespace Acme\Service;
 
-use Acme\Foundation\SessionInterface;
+use Acme\Foundation\Session\SessionInterface;
 use Acme\Repository\UserRepositoryInterface;
 
 /**

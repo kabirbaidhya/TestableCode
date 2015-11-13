@@ -5,8 +5,8 @@ namespace Acme\Test\Service;
 use Mockery;
 use Acme\Test\TestCase;
 use Acme\Service\UserService;
-use Acme\Foundation\SessionInterface;
 use Acme\Repository\UserRepositoryInterface;
+use Acme\Foundation\Session\SessionInterface;
 
 /**
  * @author Kabir Baidhya
