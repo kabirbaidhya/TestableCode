@@ -6,7 +6,9 @@ use Acme\Repository\UserRepository;
 use Acme\Foundation\Session\Session;
 use Acme\Foundation\Database\Database;
 
-require __DIR__ . '/../bootstrap.php';
+/** @var \Acme\Foundation\Application $app */
+$app = require __DIR__ . '/../bootstrap.php';
+$app->run();
 
 $config = require CONFIG_FILE;
 $database = new Database(

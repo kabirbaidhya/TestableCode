@@ -23,6 +23,7 @@
         ]
     },
     "require": {
-        "doctrine/dbal": "^2.5"
+        "doctrine/dbal": "^2.5",
+        "illuminate/container": "^5.1"
     }
 }
