@@ -33,7 +33,7 @@ class Session implements SessionInterface
         $value = $query
             ->select('value')
             ->from('sessions')
-            ->where($query->expr()->eq('key', ':key'))
+            ->where($query->expr()->eq('name', ':key'))
             ->setParameter(':key', $key)
             ->execute()->fetchColumn();
 
@@ -53,7 +53,7 @@ class Session implements SessionInterface
         $value = $query
             ->select('count(*)')
             ->from('sessions')
-            ->where($query->expr()->eq('key', ':key'))
+            ->where($query->expr()->eq('name', ':key'))
             ->setParameter(':key', $key)
             ->execute()->fetchColumn();
 

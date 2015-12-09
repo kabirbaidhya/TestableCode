@@ -29,10 +29,10 @@ DROP SEQUENCE IF EXISTS sessions_seq CASCADE;
 CREATE SEQUENCE sessions_seq;
 CREATE TABLE sessions (
     id integer PRIMARY KEY DEFAULT nextval('sessions_seq'::regclass) NOT NULL,
-    key character varying(30) NOT NULL,
+    name character varying(30) NOT NULL,
     value character varying(30) NOT NULL
 );
 
-INSERT INTO sessions (id, key, value)
+INSERT INTO sessions (id, name, value)
 VALUES
 (1, 'user_id', '1');
